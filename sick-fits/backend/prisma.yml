@@ -3,5 +3,5 @@ datamodel: datamodel.prisma
 # secret: ${env:PRISMA_SECRET}
 # prettier-ignore
 hooks:
-  post-depoloy:
-    -graphql get-schema -p prisma
+  post-deploy:
+    - graphql get-schema -p prisma

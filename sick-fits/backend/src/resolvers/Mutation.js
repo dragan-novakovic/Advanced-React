@@ -1,6 +1,7 @@
 const Mutations = {
   async createItem(parent, args, ctx, info) {
-    // TODO check if logged in
+    // TODO: Check if they are logged in
+
     const item = await ctx.db.mutation.createItem(
       {
         data: {
@@ -9,19 +10,20 @@ const Mutations = {
       },
       info
     );
-
     return item;
   },
   updateItem(parent, args, ctx, info) {
-    //take copy of updates
+    // first take a copy of the updates
     const updates = { ...args };
-    // remove the ID from updates
+    // remove the ID from the updates
     delete updates.id;
     // run the update method
     return ctx.db.mutation.updateItem(
       {
         data: updates,
-        where: { id: args.id }
+        where: {
+          id: args.id
+        }
       },
       info
     );

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Mutation, Query } from "react-apollo";
-import gql from "graphql-tag";
-import Router from "next/router";
-import Form from "./styles/Form";
-import formatMoney from "../lib/formatMoney";
-import Error from "./ErrorMessage";
+import React, { Component } from 'react';
+import { Mutation, Query } from 'react-apollo';
+import gql from 'graphql-tag';
+import Router from 'next/router';
+import Form from './styles/Form';
+import formatMoney from '../lib/formatMoney';
+import Error from './ErrorMessage';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -17,18 +17,8 @@ const SINGLE_ITEM_QUERY = gql`
   }
 `;
 const UPDATE_ITEM_MUTATION = gql`
-  mutation UPDATE_ITEM_MUTATION(
-    $id: ID!
-    $title: String
-    $description: String
-    $price: Int
-  ) {
-    updateItem(
-      id: $id
-      title: $title
-      description: $description
-      price: $price
-    ) {
+  mutation UPDATE_ITEM_MUTATION($id: ID!, $title: String, $description: String, $price: Int) {
+    updateItem(id: $id, title: $title, description: $description, price: $price) {
       id
       title
       description
@@ -41,20 +31,20 @@ class UpdateItem extends Component {
   state = {};
   handleChange = e => {
     const { name, type, value } = e.target;
-    const val = type === "number" ? parseFloat(value) : value;
+    const val = type === 'number' ? parseFloat(value) : value;
     this.setState({ [name]: val });
   };
   updateItem = async (e, updateItemMutation) => {
     e.preventDefault();
-    console.log("Updating Item!!");
+    console.log('Updating Item!!');
     console.log(this.state);
     const res = await updateItemMutation({
       variables: {
         id: this.props.id,
-        ...this.state
-      }
+        ...this.state,
+      },
     });
-    console.log("Updated!!");
+    console.log('Updated!!');
   };
 
   render() {
@@ -62,7 +52,7 @@ class UpdateItem extends Component {
       <Query
         query={SINGLE_ITEM_QUERY}
         variables={{
-          id: this.props.id
+          id: this.props.id,
         }}
       >
         {({ data, loading }) => {
@@ -111,10 +101,7 @@ class UpdateItem extends Component {
                         onChange={this.handleChange}
                       />
                     </label>
-                    <button type="submit">
-                      Sav
-                      {loading ? "ing" : "e"} Changes
-                    </button>
+                    <button type="submit">Sav{loading ? 'ing' : 'e'} Changes</button>
                   </fieldset>
                 </Form>
               )}

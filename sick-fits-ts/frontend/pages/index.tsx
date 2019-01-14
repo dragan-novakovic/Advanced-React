@@ -1,3 +1,9 @@
-import React from 'react'
+import Link from 'next/link';
 
-export default () => <div>Ofjwofjowajfwoafjwaofjwao</div>
+const Home = props => (
+  <div>
+    <p>Hey!</p>
+  </div>
+);
+
+export default Home;

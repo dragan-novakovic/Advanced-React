@@ -1,8 +1,8 @@
-import Link from 'next/link';
+//import Link from 'next/link';
 
-const Home = props => (
+const Home = () => (
   <div>
-    <p>Hey!</p>
+    <p>ALO</p>
   </div>
 );
 

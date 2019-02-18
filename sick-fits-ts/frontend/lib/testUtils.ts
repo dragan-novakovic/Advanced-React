@@ -11,7 +11,7 @@ const fakeItem = () => ({
   image: 'dog-small.jpg',
   title: 'dogs are best',
   description: 'dogs',
-  largeImage: 'dog.jpg',
+  largeImage: 'dog.jpg'
 });
 
 const fakeUser = () => ({
@@ -21,7 +21,7 @@ const fakeUser = () => ({
   email: casual.email,
   permissions: ['ADMIN'],
   orders: [],
-  cart: [],
+  cart: []
 });
 
 const fakeOrderItem = () => ({
@@ -31,7 +31,7 @@ const fakeOrderItem = () => ({
   title: casual.words(),
   price: 4234,
   quantity: 1,
-  description: casual.words(),
+  description: casual.words()
 });
 
 const fakeOrder = () => ({
@@ -41,20 +41,21 @@ const fakeOrder = () => ({
   total: 40000,
   items: [fakeOrderItem(), fakeOrderItem()],
   createdAt: '2018-04 - 06T19: 24: 16.000Z',
-  user: fakeUser(),
+  user: fakeUser()
 });
 
-const fakeCartItem = overrides => ({
+const fakeCartItem = (overrides: any) => ({
   __typename: 'CartItem',
   id: 'omg123',
   quantity: 3,
   item: fakeItem(),
   user: fakeUser(),
-  ...overrides,
+  ...overrides
 });
 
 // Fake LocalStorage
 class LocalStorageMock {
+  public store: any;
   constructor() {
     this.store = {};
   }
@@ -63,15 +64,15 @@ class LocalStorageMock {
     this.store = {};
   }
 
-  getItem(key) {
+  getItem(key: string) {
     return this.store[key] || null;
   }
 
-  setItem(key, value) {
+  setItem(key: string, value: any) {
     this.store[key] = value.toString();
   }
 
-  removeItem(key) {
+  removeItem(key: string) {
     delete this.store[key];
   }
 }
@@ -82,5 +83,5 @@ export {
   fakeUser,
   fakeCartItem,
   fakeOrder,
-  fakeOrderItem,
+  fakeOrderItem
 };

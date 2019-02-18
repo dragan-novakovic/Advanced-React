@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { FunctionComponent } from 'react';
 import Header from './Header';
 import Meta from './Meta';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const theme = {
   red: '#FF0000',
@@ -28,7 +28,7 @@ const Inner = styled.div`
 
 */
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'radnika_next';
     src: url('/static/radnikanext-medium-webfont.woff2')
@@ -54,23 +54,23 @@ injectGlobal`
 
   a {
     text-decoration: none;
-    color: ${theme.black}
+    color: ${props => props.theme.black}
   }
 
 `
 
-class Page extends Component {
-  render() {
-    return (
+const Page:FunctionComponent<{}> = ({children}) => ( 
       <ThemeProvider theme={theme}>
+      <>
+      <GlobalStyle/>
         <StyledPage>
           <Meta />
           <Header />
-          {this.props.children}
+          {children}
         </StyledPage>
+      </>
       </ThemeProvider>
     );
-  }
-}
+ 
 
 export default Page;

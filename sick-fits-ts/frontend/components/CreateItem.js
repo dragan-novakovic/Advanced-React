@@ -50,10 +50,10 @@ export default class CreateItem extends React.Component {
               e.preventDefault();
               const res = await createItem();
               console.log(res);
-              Router.push({
-                pathname: '/id'
-                //query: { id: res.data.createItem.id }
-              });
+              //Router.push({
+              // pathname: '/id'
+              //query: { id: res.data.createItem.id }
+              //});
             }}
           >
             {/* <Error error={error} /> */}

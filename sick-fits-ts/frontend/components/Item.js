@@ -4,6 +4,7 @@ import Title from './styles/Title';
 import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
+import DeleteItem from './DeleteItem';
 
 export default class Item extends React.Component {
   render() {
@@ -29,7 +30,7 @@ export default class Item extends React.Component {
                 query: { id: item.id }
               }}
             >
-              <a>Edit</a>
+              <a style={{ color: 'black' }}>Edit</a>
             </Link>
             <Link
               href={{
@@ -37,7 +38,7 @@ export default class Item extends React.Component {
                 query: { id: item.id }
               }}
             >
-              <a>Edit</a>
+              <a style={{ color: 'black' }}>Add to Cart</a>
             </Link>
             <Link
               href={{
@@ -45,7 +46,9 @@ export default class Item extends React.Component {
                 query: { id: item.id }
               }}
             >
-              <a>Edit</a>
+              <DeleteItem>
+                <a style={{ color: 'black' }}>Delete Item</a>
+              </DeleteItem>
             </Link>
           </div>
         </Title>

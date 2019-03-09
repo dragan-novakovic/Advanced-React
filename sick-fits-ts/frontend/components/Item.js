@@ -21,37 +21,37 @@ export default class Item extends React.Component {
           >
             <a>{item.title}</a>
           </Link>
-          <PriceTag>{formatMoney(item.price)}</PriceTag>
-          <p>{item.description}</p>
-          <div className="buttonList">
-            <Link
-              href={{
-                pathname: 'update',
-                query: { id: item.id }
-              }}
-            >
-              <a style={{ color: 'black' }}>Edit</a>
-            </Link>
-            <Link
-              href={{
-                pathname: 'update',
-                query: { id: item.id }
-              }}
-            >
-              <a style={{ color: 'black' }}>Add to Cart</a>
-            </Link>
-            <Link
-              href={{
-                pathname: 'update',
-                query: { id: item.id }
-              }}
-            >
-              <DeleteItem>
-                <a style={{ color: 'black' }}>Delete Item</a>
-              </DeleteItem>
-            </Link>
-          </div>
         </Title>
+        <PriceTag>{formatMoney(item.price)}</PriceTag>
+        <p>{item.description}</p>
+        <div className="buttonList">
+          <Link
+            href={{
+              pathname: 'update',
+              query: { id: item.id }
+            }}
+          >
+            <a>Edit ✏️</a>
+          </Link>
+          <Link
+            href={{
+              pathname: 'update',
+              query: { id: item.id }
+            }}
+          >
+            <a>Add to Cart</a>
+          </Link>
+          <Link
+            href={{
+              pathname: 'update',
+              query: { id: item.id }
+            }}
+          >
+            <DeleteItem id={item.id}>
+              <a>Delete Item</a>
+            </DeleteItem>
+          </Link>
+        </div>
       </ItemStyles>
     );
   }

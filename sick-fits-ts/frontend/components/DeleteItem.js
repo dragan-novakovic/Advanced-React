@@ -32,6 +32,7 @@ class DeleteItem extends React.Component {
         update={this.update}
       >
         {(deleteItem, { error }) => {
+          if (error) return <p>Errrrrr</p>;
           return (
             <button
               onClick={() => {

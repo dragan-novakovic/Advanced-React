@@ -23,16 +23,12 @@ const UPDATE_ITEM_MUTATION = gql`
     $title: String
     $description: String
     $price: Int
-    $image: String
-    $largeImage: String
   ) {
     updateItem(
       id: $id
       title: $title
       description: $description
       price: $price
-      image: $image
-      largeImage: $largeImage
     ) {
       id
     }
@@ -76,7 +72,7 @@ export default class UpdateItem extends React.Component {
         ...this.state
       }
     });
-    console.log(res);
+    console.log('UPDATED', res);
     //Router.push({
     // pathname: '/id'
     //query: { id: res.data.createItem.id }
@@ -92,65 +88,55 @@ export default class UpdateItem extends React.Component {
           if (!data) return <p>No data found for ID</p>;
           return (
             <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
-              {(updateItem, { loading, error }) => (
-                <Form onSubmit={e => this.updateItem(e, updateItem)}>
-                  {/* <Error error={error} /> */}
-                  <fieldset disabled={loading} aria-busy={loading}>
-                    <label htmlFor="file">
-                      Image
-                      <input
-                        type="file"
-                        id="file"
-                        name="file"
-                        placeholder="Upload an Image"
-                        required
-                        //value={this.state.file}
-                        onChange={this.uploadFile}
-                      />
-                      {this.state.image && (
-                        <img src={this.state.image} alt="Upload Preview" />
-                      )}
-                    </label>
-                    <label htmlFor="title">
-                      Title
-                      <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        placeholder="Title"
-                        required
-                        defaultValue={this.state.title}
-                        onChange={this.handleChange}
-                      />
-                    </label>
-                    <label htmlFor="price">
-                      Price
-                      <input
-                        type="number"
-                        id="price"
-                        name="price"
-                        placeholder="Price"
-                        required
-                        defaultValue={this.state.price}
-                        onChange={this.handleChange}
-                      />
-                    </label>
-                    <label htmlFor="description">
-                      Description
-                      <textarea
-                        type="text"
-                        id="description"
-                        name="description"
-                        placeholder="description"
-                        required
-                        defaultValue={this.state.description}
-                        onChange={this.handleChange}
-                      />
-                    </label>
-                    <button type="submit">Submit</button>
-                  </fieldset>
-                </Form>
-              )}
+              {(updateItem, { loading, error }) => {
+                if (error) return <p>Errrrrrr</p>;
+                return (
+                  <Form onSubmit={e => this.updateItem(e, updateItem)}>
+                    {/* <Error error={error} /> */}
+                    <fieldset disabled={loading} aria-busy={loading}>
+                      <label htmlFor="title">
+                        Title
+                        <input
+                          type="text"
+                          id="title"
+                          name="title"
+                          placeholder="Title"
+                          required
+                          defaultValue={data.item.title}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <label htmlFor="price">
+                        Price
+                        <input
+                          type="number"
+                          id="price"
+                          name="price"
+                          placeholder="Price"
+                          required
+                          defaultValue={data.item.price}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <label htmlFor="description">
+                        Description
+                        <textarea
+                          type="text"
+                          id="description"
+                          name="description"
+                          placeholder="description"
+                          required
+                          defaultValue={data.item.description}
+                          onChange={this.handleChange}
+                        />
+                      </label>
+                      <button type="submit">
+                        Sav{loading ? 'ing' : 'e'} Changes
+                      </button>
+                    </fieldset>
+                  </Form>
+                );
+              }}
             </Mutation>
           );
         }}

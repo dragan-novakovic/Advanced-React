@@ -5,9 +5,9 @@ import User from './User'
 const Nav = () => (
 <NavStyles>
   <User>
-    {({data, error, loading}) => {
-      console.log(data);
-     // if (me) return <p>{me.name}</p>
+    {({data: { me }, error, loading}) => {
+     // console.log(data);
+    if (me) return <p>{me.name}</p>
       return <p>ERRR</p>;
     }}
   </User>

@@ -1,22 +1,40 @@
-import Link from "next/link";
-import NavStyles from './styles/NavStyles'
-import User from './User'
+import Link from 'next/link';
+import NavStyles from './styles/NavStyles';
+import User from './User';
+import Signout from './Signout';
 
 const Nav = () => (
-<NavStyles>
   <User>
-    {({data: { me }, error, loading}) => {
-     // console.log(data);
-    if (me) return <p>{me.name}</p>
-      return <p>ERRR</p>;
+    {({ data }) => {
+      const me = data ? data.me : null;
+      return (
+        <NavStyles data-test="nav">
+          <Link href="/items">
+            <a>Shop</a>
+          </Link>
+          {me && (
+            <>
+              <Link href="/sell">
+                <a>Sell</a>
+              </Link>
+              <Link href="/orders">
+                <a>Orders</a>
+              </Link>
+              <Link href="/me">
+                <a>Account</a>
+              </Link>
+              <Signout />
+            </>
+          )}
+          {!me && (
+            <Link href="/signup">
+              <a>Sign In</a>
+            </Link>
+          )}
+        </NavStyles>
+      );
     }}
   </User>
-  <Link href="items"><a>items</a></Link>    
-  <Link href="sell"><a>sell</a></Link>
-  <Link href="signup"><a>signup</a></Link>
-  <Link href="orders"><a>orders</a></Link>
-  <Link href="me"><a>Account</a></Link>    
-</NavStyles>
 );
 
 export default Nav;

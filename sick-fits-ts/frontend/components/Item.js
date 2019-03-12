@@ -5,6 +5,7 @@ import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
+import AddToCart from './AddtoCart';
 
 export default class Item extends React.Component {
   render() {
@@ -33,24 +34,9 @@ export default class Item extends React.Component {
           >
             <a>Edit ✏️</a>
           </Link>
-          <Link
-            href={{
-              pathname: 'update',
-              query: { id: item.id }
-            }}
-          >
-            <a>Add to Cart</a>
-          </Link>
-          <Link
-            href={{
-              pathname: 'update',
-              query: { id: item.id }
-            }}
-          >
-            <DeleteItem id={item.id}>
-              <a>Delete Item</a>
-            </DeleteItem>
-          </Link>
+
+          <AddToCart id={item.id} />
+          <DeleteItem id={item.id}>Delete This Item</DeleteItem>
         </div>
       </ItemStyles>
     );

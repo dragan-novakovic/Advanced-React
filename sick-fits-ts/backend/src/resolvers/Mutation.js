@@ -283,6 +283,73 @@ const mutations = {
       },
       info
     );
+  },
+
+  async createOrder(parent, args, ctx, info) {
+    // 1. Query the current user that is signed in
+    const { userId } = ctx.request;
+    if (!userId) {
+      throw new Error('You must be signed in to complete the order');
+    }
+    const user = await ctx.db.query.user(
+      { where: { id: userId } },
+      `{
+        id 
+        name 
+        email 
+        cart { 
+          id 
+          quantity 
+          item {
+            title
+            price
+            id
+            description
+            image
+            largeImage
+          }
+        }
+      }`
+    );
+    // 2. recalculate the total price
+    const amount = user.cart.reduce(
+      (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity,
+      0
+    );
+    // 3. create the stripe charge
+    const charge = await stripe.charges.create({
+      amount,
+      currency: 'USD',
+      source: args.token
+    });
+    // 4. convert cartItem to orderItem
+    const orderItems = user.cart.map(cartItem => {
+      const orderItem = {
+        ...cartItem.item,
+        quantity: cartItem.quantity,
+        user: { connect: { id: userId } }
+      };
+      delete orderItem.id;
+      return orderItem;
+    });
+
+    const order = await ctx.db.mutation.createOrder({
+      data: {
+        total: charge.amount,
+        charge: charge.id,
+        items: { create: orderItems },
+        user: { connect: { id: userId } }
+      }
+    });
+    // 5. clean up the cart
+    const cartItemsIds = user.cart.map(cartItem => cartItem.id);
+    await ctx.db.mutation.deleteManyCartItems({
+      where: {
+        id_in: cartItemsIds
+      }
+    });
+    // 6. return the Order to client
+    return order;
   }
 };
 

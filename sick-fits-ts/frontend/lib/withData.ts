@@ -33,7 +33,7 @@ function createClient({ headers }: any) {
         }
       },
       defaults: {
-        cartOpen: true
+        cartOpen: false
       }
     }
   });

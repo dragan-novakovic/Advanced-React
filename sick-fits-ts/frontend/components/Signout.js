@@ -17,7 +17,7 @@ export default function Signout() {
       mutation={SIGN_OUT_MUTATION}
       refetchQueries={[{ query: CURRENT_USER_QUERY }]}
     >
-      {signout => <button onClick={signout}>Sign Out</button>}
+      {signout => <button onClick={signout}>Logout</button>}
     </Mutation>
   );
 }

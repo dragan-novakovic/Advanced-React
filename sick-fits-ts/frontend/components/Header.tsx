@@ -20,7 +20,7 @@ Router.onRouteChangeError = () => {
 };
 
 const Logo = styled.h1`
-  font-size: 4rem;
+  font-size: 2.8rem;
   margin-left: 2rem;
   postion: relative;
   z-index: 2;
@@ -64,7 +64,7 @@ const Header = () => (
   <StyledHeader>
     <div className="bar">
       <Logo>
-        <Link href="/">
+        <Link href="/items">
           <a>EuroSport</a>
         </Link>
       </Logo>

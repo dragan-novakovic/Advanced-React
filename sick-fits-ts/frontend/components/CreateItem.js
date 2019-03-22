@@ -48,7 +48,7 @@ export default class CreateItem extends React.Component {
     data.append('upload_preset', 'products');
 
     const res = await fetch(
-      'http://api.cloudinary.com/v1_1/dragan1810/image/upload',
+      'https://api.cloudinary.com/v1_1/dragan1810/image/upload',
       { method: 'POST', body: data }
     );
 

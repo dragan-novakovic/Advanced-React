@@ -44,7 +44,7 @@ export default class Signin extends React.Component {
               }}
             >
               <fieldset disabled={loading} aria-busy={loading}>
-                <h2>Sign In for An Account</h2>
+                <h2>Sign In</h2>
                 <label htmlFor="email">
                   Email{' '}
                   <input

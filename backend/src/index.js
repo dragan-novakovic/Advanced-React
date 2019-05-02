@@ -33,7 +33,12 @@ server.express.use(async (req, res, next) => {
 });
 // TODO populate current user
 
-const serverOptions = {};
+const serverOptions = {
+  cors: {
+    credentials: true,
+    origin: process.env.FRONTEND_URL
+  }
+};
 
 server.start(
   serverOptions,

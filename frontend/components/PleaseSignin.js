@@ -10,7 +10,7 @@ export default function PleaseSignIn(props) {
         if (!data.me) {
           return (
             <div>
-              <p>Please Sign In before continueing</p>
+              <p>Please Sign In before continuing</p>
               <Signin />
             </div>
           );

@@ -22,7 +22,10 @@ server.express.use((req, res, next) => {
   next();
 });
 
+// 2. Create a middleware that populates the user on each request
+
 server.express.use(async (req, res, next) => {
+  // if they aren't logged in, skip this
   if (!req.userId) return next();
   const user = await db.query.user(
     { where: { id: req.userId } },
@@ -31,16 +34,21 @@ server.express.use(async (req, res, next) => {
   req.user = user;
   next();
 });
-// TODO populate current user
 
 const serverOptions = {
   cors: {
     credentials: true,
-    origin: process.env.FRONTEND_URL
+    origin:
+      process.env.NODE_ENV === 'development'
+        ? process.env.FRONTEND_URL_LOCAL
+        : process.env.FRONTEND_URL
   }
 };
 
 server.start(
   serverOptions,
-  deets => void console.log(`Server is running on port: ${deets.port}`)
+  deets =>
+    void console.log(
+      `Server is running on port: ${deets.port} ${process.env.NODE_ENV}`
+    )
 );

@@ -71,8 +71,8 @@ const Header = () => (
 
       <Nav />
     </div>
-    <div className="sub-bar">
-      <Search />
+    <div style={{ paddingBottom: 20 }} className="sub-bar">
+      {/* <Search /> */}
     </div>
     <Cart />
   </StyledHeader>

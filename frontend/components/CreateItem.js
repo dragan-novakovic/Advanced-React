@@ -76,7 +76,7 @@ export default class CreateItem extends React.Component {
               //});
             }}
           >
-            {/* <Error error={error} /> */}
+            <ErrorMessage error={error} />
             <fieldset disabled={loading} aria-busy={loading}>
               <label htmlFor="file">
                 Image

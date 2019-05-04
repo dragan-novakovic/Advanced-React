@@ -8,7 +8,7 @@ class MyApp extends App {
     let pageProps = {};
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getIntialProps(ctx);
+      pageProps = Component.getIntialProps(ctx);
     }
     // this exposes the query to the user
     pageProps.query = ctx.query;

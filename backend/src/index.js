@@ -45,6 +45,7 @@ const serverOptions = {
       'http://localhost:3000',
       'https://localhost:3000',
       'http://46.101.103.143',
+      'http://46.101.103.143:3000'
       'www.eurosport.gq'
     ]
   }

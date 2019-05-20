@@ -43,7 +43,9 @@ const serverOptions = {
       'https://eurosport.now.sh',
       'http://localhost:7777',
       'http://localhost:3000',
-      'https://localhost:3000'
+      'https://localhost:3000',
+      'http://46.101.103.143',
+      'www.eurosport.gq'
     ]
   }
 };

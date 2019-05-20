@@ -37,17 +37,7 @@ server.express.use(async (req, res, next) => {
 
 const serverOptions = {
   cors: {
-    credentials: true,
-    origin: [
-      'https://eurosport.now.sh/:1',
-      'https://eurosport.now.sh',
-      'http://localhost:7777',
-      'http://localhost:3000',
-      'https://localhost:3000',
-      'http://46.101.103.143',
-      'http://46.101.103.143:3000',
-      'www.eurosport.gq'
-    ]
+    credentials: false
   }
 };
 
@@ -58,3 +48,19 @@ server.start(
       `Server is running on port: ${deets.port} ${process.env.NODE_ENV}`
     )
 );
+
+/*
+
+origin: [
+      'https://eurosport.now.sh/:1',
+      'https://eurosport.now.sh',
+      'http://localhost:7777',
+      'http://localhost:3000',
+      'https://localhost:3000',
+      'http://46.101.103.143',
+      'http://46.101.103.143:3000',
+      'www.eurosport.gq'
+    ]
+
+
+*/

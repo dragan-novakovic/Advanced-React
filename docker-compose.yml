@@ -11,12 +11,12 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock #So that Traefik can listen to the Docker events
 
   server:
-    build: ./eurosport-backend
+    build: ./backend
     ports:
       - 4444:4444
 
   client:
-    build: eurosport-frontend/
+    build: frontend/
     ports:
       - 3000:3000
     depends_on:

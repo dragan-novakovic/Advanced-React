@@ -88,7 +88,7 @@ export default class UpdateItem extends React.Component {
                 if (error) return <p>Errrrrrr</p>;
                 return (
                   <Form onSubmit={e => this.updateItem(e, updateItem)}>
-                    {/* <Error error={error} /> */}
+                    <ErrorMessage error={error} />
                     <fieldset disabled={loading} aria-busy={loading}>
                       <label htmlFor="title">
                         Title

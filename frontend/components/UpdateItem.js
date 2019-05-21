@@ -56,7 +56,7 @@ export default class UpdateItem extends React.Component {
     );
 
     const file = await res.json();
-    console.log(file);
+    // console.log(file);
 
     this.setState({
       image: file.secure_url,
@@ -66,17 +66,13 @@ export default class UpdateItem extends React.Component {
 
   updateItem = async (e, updateItemMutation) => {
     e.preventDefault();
-    const res = await updateItemMutation({
+    await updateItemMutation({
       variables: {
         id: this.props.id,
         ...this.state
       }
     });
-    console.log('UPDATED', res);
-    //Router.push({
-    // pathname: '/id'
-    //query: { id: res.data.createItem.id }
-    //});
+    Router.push('/');
   };
 
   render() {

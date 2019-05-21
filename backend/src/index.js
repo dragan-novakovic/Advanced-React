@@ -46,7 +46,9 @@ const serverOptions = {
       'https://localhost:3000',
       'http://46.101.103.143',
       'http://46.101.103.143:3000',
-      'www.eurosport.gq'
+      'www.eurosport.gq',
+      'http://eurosport.gq:80',
+      'http://eurosport.gq/'
     ]
   }
 };

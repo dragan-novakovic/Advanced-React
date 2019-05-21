@@ -53,7 +53,6 @@ export default class CreateItem extends React.Component {
     );
 
     const file = await res.json();
-    console.log(file);
 
     this.setState({
       image: file.secure_url,
@@ -68,12 +67,8 @@ export default class CreateItem extends React.Component {
           <Form
             onSubmit={async e => {
               e.preventDefault();
-              const res = await createItem();
-              console.log(res);
-              //Router.push({
-              // pathname: '/id'
-              //query: { id: res.data.createItem.id }
-              //});
+              await createItem();
+              Router.push('/');
             }}
           >
             <ErrorMessage error={error} />

@@ -25,6 +25,8 @@ const Inner = styled.div`
 `;
 
 injectGlobal`
+  @import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
+
   @font-face {
     font-family: 'radnika_next';
     src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
@@ -41,9 +43,9 @@ injectGlobal`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     line-height: 2;
-    font-family: 'radnika_next';
+    font-family: 'Oswald','radnika_next',"Segoe UI";
   }
   a {
     text-decoration: none;

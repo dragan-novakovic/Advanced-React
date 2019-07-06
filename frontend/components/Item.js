@@ -10,8 +10,14 @@ import FsLightbox from 'fslightbox-react';
 
 export default function Item({ item }) {
   return (
-    <ItemStyles onClick={() => window.open(item.image)}>
-      {item.image && <img src={item.image} alt={item.description} />}
+    <ItemStyles>
+      {item.image && (
+        <img
+          src={item.image}
+          alt={item.description}
+          onClick={() => window.open(item.image)}
+        />
+      )}
       <Title>
         <a>{item.title}</a>
       </Title>

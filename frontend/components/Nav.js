@@ -10,10 +10,6 @@ const Nav = () => (
       const me = data ? data.me : null;
       return (
         <NavStyles data-test="nav">
-          <Link href="/">
-            <a>Shop</a>
-          </Link>
-
           {me && (
             <>
               <Link href="/sell">

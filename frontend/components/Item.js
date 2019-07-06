@@ -6,40 +6,36 @@ import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
 import User from './User';
+import FsLightbox from 'fslightbox-react';
 
-export default class Item extends React.Component {
-  render() {
-    const { item } = this.props;
-    return (
-      <ItemStyles>
-        {item.image && <img src={item.image} alt={item.description} />}
-        <Title>
-          <a>{item.title}</a>
-        </Title>
-        <PriceTag>{formatMoney(item.price)}</PriceTag>
-        <p>{item.description}</p>
-        <User>
-          {({ data }) => {
-            return (
-              data.me && (
-                <div className="buttonList">
-                  <Link
-                    href={{
-                      pathname: 'update',
-                      query: { id: item.id }
-                    }}
-                  >
-                    <a>Izmeni ✏️</a>
-                  </Link>
-
-                  {/* <AddToCart id={item.id} /> */}
-                  <DeleteItem id={item.id}>Obrisi</DeleteItem>
-                </div>
-              )
-            );
-          }}
-        </User>
-      </ItemStyles>
-    );
-  }
+export default function Item({ item }) {
+  return (
+    <ItemStyles onClick={() => window.open(item.image)}>
+      {item.image && <img src={item.image} alt={item.description} />}
+      <Title>
+        <a>{item.title}</a>
+      </Title>
+      <PriceTag>{formatMoney(item.price)}</PriceTag>
+      <p>{item.description}</p>
+      <User>
+        {({ data }) => {
+          return (
+            data.me && (
+              <div className="buttonList">
+                <Link
+                  href={{
+                    pathname: 'update',
+                    query: { id: item.id }
+                  }}
+                >
+                  <a>Izmeni ✏️</a>
+                </Link>
+                <DeleteItem id={item.id}>Obrisi</DeleteItem>
+              </div>
+            )
+          );
+        }}
+      </User>
+    </ItemStyles>
+  );
 }

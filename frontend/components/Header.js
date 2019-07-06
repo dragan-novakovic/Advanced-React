@@ -59,7 +59,7 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>EuroSport</a>
+          <a>EuroSport Oprema</a>
         </Link>
       </Logo>
 

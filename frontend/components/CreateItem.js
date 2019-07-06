@@ -56,7 +56,7 @@ export default class CreateItem extends React.Component {
 
     this.setState({
       image: file.secure_url,
-      largeImage: file.eager[0].secure_url
+      largeImage: file.secure_url
     });
   };
 

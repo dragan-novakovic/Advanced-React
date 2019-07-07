@@ -6,7 +6,6 @@ import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
 import User from './User';
-import FsLightbox from 'fslightbox-react';
 
 export default function Item({ item }) {
   return (

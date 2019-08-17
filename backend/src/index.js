@@ -46,9 +46,13 @@ const serverOptions = {
       'https://localhost:3000',
       'http://46.101.103.143',
       'http://46.101.103.143:3000',
+      'https://46.101.103.143:4444',
+      'http://46.101.103.143:4444',
       'http://eurosport.gq',
       'http://eurosport.gq:80',
-      'http://eurosport.gq/'
+      'http://eurosport.gq/',
+      'http://bodybuildingoprema.rs/',
+      'https://bodybuildingoprema.rs/'
     ]
   }
 };

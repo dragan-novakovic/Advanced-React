@@ -54,10 +54,6 @@ const serverOptions = {
       'http://bodybuildingoprema.rs/',
       'https://bodybuildingoprema.rs/'
     ]
-  },
-  https: {
-    key: fs.readFileSync('server.key'),
-    cert: fs.readFileSync('server.cert')
   }
 };
 

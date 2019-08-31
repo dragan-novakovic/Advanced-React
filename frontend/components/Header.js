@@ -19,7 +19,7 @@ Router.onRouteChangeError = () => {
 };
 
 const Logo = styled.h1`
-  font-size: 2.8rem;
+  font-size: 2rem;
   margin-left: 1.5rem;
   postion: relative;
   z-index: 2;
@@ -59,7 +59,7 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a>EuroSport Oprema</a>
+          <a>Bodybuildingoprema Eurosport</a>
         </Link>
       </Logo>
 

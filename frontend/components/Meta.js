@@ -6,7 +6,7 @@ const Meta = () => (
     <meta charSet="utf-8" />
     <link rel="shortcut icon" href="/static/favicon.png" />
     <link rel="stylesheet" type="text/css" href="/static/nprogress.css" />
-    <meta name="title" content="EuroSport" />
+    <meta name="title" content="bodybuildingoprema" />
     <meta
       name="description"
       content="Izrada i prodaja profesionalnih sprava za vežbanje. Opremite vašu teretanu spravama vrhunskog kvaliteta, po povoljnim cenama."
@@ -17,7 +17,7 @@ const Meta = () => (
     />
     <meta name="robots" content="index, follow" />
     <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>EuroSport</title>
+    <title>Bodybuildingoprema</title>
   </Head>
 );
 

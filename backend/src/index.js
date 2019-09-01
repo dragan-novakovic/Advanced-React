@@ -50,7 +50,9 @@ const serverOptions = {
       'http://eurosport.gq:80',
       'http://eurosport.gq/',
       'http://bodybuildingoprema.rs',
+      'http://bodybuildingoprema.rs/',
       'https://bodybuildingoprema.rs',
+      'https://bodybuildingoprema.rs/',
       'https://bodybuildingoprema.rs/api/',
       'https://bodybuildingoprema.rs:3000'
     ]

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import React from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import Meta from './Meta';
 
@@ -24,7 +24,7 @@ const Inner = styled.div`
   padding: 2rem;
 `;
 
-injectGlobal`
+const Global = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Oswald:700&display=swap');
 
   @font-face {
@@ -58,6 +58,7 @@ const Page = ({ children }) => (
   <ThemeProvider theme={theme}>
     <>
       <StyledPage>
+        <Global />
         <Meta />
         <Header />
         {children}

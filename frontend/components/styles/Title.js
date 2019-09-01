@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Title = styled.h3`
+const Title = styled.h2`
   margin: 0 1rem;
   text-align: center;
   transform: skew(-5deg) rotate(-1deg);

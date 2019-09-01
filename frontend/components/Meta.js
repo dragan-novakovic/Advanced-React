@@ -17,7 +17,8 @@ const Meta = () => (
     />
     <meta name="robots" content="index, follow" />
     <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Bodybuildingoprema</title>
+    <meta name="google-site-verification" content="Ps01UEbxPnkxAAk7XHnaffANonGib8ZekYZRuKbmJ4g" />
+    <title>Bodybuilding Oprema - EuroSport</title>
   </Head>
 );
 
